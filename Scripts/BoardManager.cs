@@ -100,11 +100,6 @@ public class BoardManager : MonoBehaviour
 
     // Update is called once per frame
 
-    // Trial comment
-
-    // Trial comment 2
-
-    // Trial comment 3
     
     void Update()
     {
