@@ -1,20 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public abstract class MovingObject : MonoBehaviours {
+public abstract class MovingObject : MonoBehaviour {
 
     public float moveTime = 0.1f;
     public LayerMask blockingLayer;
 
     private BoxCollider2D boxCollider;
-    private Ridgidbody2D rb2D;
+    private Rigidbody2D rb2D;
     private float inverseMoveTime;
 
 
     // Use this for initialization
     protected virtual void Start () {
         boxCollider = GetComponent<BoxCollider2D> ();
-        rd2D = GetComponent<Ridgidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f / moveTime;
     }
 
@@ -31,6 +31,8 @@ public abstract class MovingObject : MonoBehaviours {
         {
             StartCoroutine(SmoothMovement (end));
         }
+
+        return false;
     }
 
     protected IEnumerator SmoothMovement (Vector3 end)
@@ -39,7 +41,7 @@ public abstract class MovingObject : MonoBehaviours {
 
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end , inverseMoveTime * moveTime.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end , inverseMoveTime * Time.deltaTime);
             rb2D.MovePosition(newPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
