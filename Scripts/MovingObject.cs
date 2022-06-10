@@ -9,11 +9,13 @@ public abstract class MovingObject : MonoBehavious {
     private BoxCollider2D boxCollider;
     private Ridgidbody2D rb2D;
     private float inverseMoveTime;
-    
+
 
     // Use this for initialization
-    void Start () {
-
+    protected virtual void Start () {
+        boxCollider = GetComponent<BoxCollider2D> ();
+        rd2D = GetComponent<Ridgidbody2D>();
+        inverseMoveTime = 1f / moveTime;
     }
 
     // Update is called once per frame
