@@ -30,6 +30,10 @@ public abstract class MovingObject : MonoBehavious {
             yield return null;
         }
     }
+
+    protected abstract void OnCantMove <T> (T component)
+        where T : Component;
+
     // Update is called once per frame
 
 }
