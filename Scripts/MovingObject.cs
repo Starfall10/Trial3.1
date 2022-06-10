@@ -18,6 +18,18 @@ public abstract class MovingObject : MonoBehavious {
         inverseMoveTime = 1f / moveTime;
     }
 
+    protected IEnumerator SmoothMovement (Vector3 end)
+    {
+        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+
+        while (sqrRemainingDistance > float.Epsilon)
+        {
+            Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end , inverseMoveTime * moveTime.deltaTime);
+            rb2D.MovePosition(newPosition);
+            sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+            yield return null;
+        }
+    }
     // Update is called once per frame
     void Update () {
 
