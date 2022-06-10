@@ -31,7 +31,5 @@ public abstract class MovingObject : MonoBehavious {
         }
     }
     // Update is called once per frame
-    void Update () {
 
-    }
 }
