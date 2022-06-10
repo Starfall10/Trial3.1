@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public abstract class MovingObject : MonoBehavious {
+public abstract class MovingObject : MonoBehaviours {
 
     public float moveTime = 0.1f;
     public LayerMask blockingLayer;
