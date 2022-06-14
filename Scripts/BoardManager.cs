@@ -100,7 +100,7 @@ public class BoardManager : MonoBehaviour
 
     // Update is called once per frame
 
-    //Testing 123
+    
     
     void Update()
     {
