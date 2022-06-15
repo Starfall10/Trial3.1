@@ -67,6 +67,12 @@ public class Player : MovingObject
         Application.LoadLevel(Application.loadedLevel);
     }
 
+    public void LoseFood (int loss)
+    {
+        animator.SetTrigger("playerHit");
+        food -= loss;
+        CheckIfGameOver();
+    }
     private void CheckIfGameOver()
     {
         if (food <= 0)
