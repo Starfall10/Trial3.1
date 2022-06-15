@@ -27,10 +27,11 @@ public class Player : MovingObject
     {
         GameManager.instance.playerFoodPoints - food;
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    private void CheckIfGameOver()
     {
-        
+        if (food <= 0)
+            GameManager.instance.GameOver();
     }
+
 }
