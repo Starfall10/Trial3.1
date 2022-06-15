@@ -23,7 +23,10 @@ public class Player : MovingObject
         base.Start();
     }
 
-    
+    private void OnDisable()
+    {
+        GameManager.instance.playerFoodPoints - food;
+    }
     
     // Update is called once per frame
     void Update()
