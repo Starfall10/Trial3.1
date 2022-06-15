@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Loader : MonoBehaviour
 {
     public GameObject gameManager;
@@ -16,5 +16,16 @@ public class Loader : MonoBehaviour
     void Update()
     {
         
+    }
+}
+
+public static class Loader1 
+{
+    public enum Scene {
+        Main,
+    }
+
+    public static void Load(Scene scene) {
+        SceneManager.LoadScene(scene.ToString());
     }
 }

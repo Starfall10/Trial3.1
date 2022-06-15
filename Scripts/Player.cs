@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MovingObject
 {
 
@@ -81,9 +81,12 @@ public class Player : MovingObject
         animator.SetTrigger("playerChop");
     }
 
+    public enum Scene {
+        Main,
+    }
     private void Restart()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        Loader1.Load(Loader1.Scene.Main);
     }
 
     public void LoseFood (int loss)
