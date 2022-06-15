@@ -54,6 +54,13 @@ public class Player : MovingObject
 
         GameManager.instance.playersTurn = false;
     }
+
+    protected override void OnCantMove <T> (T compont)
+    {
+        Wall hitWall = component as Wall;
+        hitWall.DamageWall(wallDamage);
+        animator.SetTrigger("playerChop");
+    }
     private void CheckIfGameOver()
     {
         if (food <= 0)
