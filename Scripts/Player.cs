@@ -61,6 +61,12 @@ public class Player : MovingObject
         hitWall.DamageWall(wallDamage);
         animator.SetTrigger("playerChop");
     }
+
+    private void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
     private void CheckIfGameOver()
     {
         if (food <= 0)
