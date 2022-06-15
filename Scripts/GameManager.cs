@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     
     public void AddEnemyToList(Enemy script)
     {
-        enemies.Add (scripts);
+        enemies.Add (script);
     }
     IEnumerator MoveEnemies()
     {

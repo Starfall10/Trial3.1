@@ -7,14 +7,14 @@ public class Enemy : MovingObject
     public int playerDamage;
 
     private Animator animator;
-    private Transform targer;
+    private Transform target;
     private bool skipMove;
 
 
     protected override void Start()
     {
         GameManager.instance.AddEnemyToList(this);
-        animator = GetComponent<animator>();
+        animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag ("Player").transform;
         base.Start();
     }
@@ -37,10 +37,10 @@ public class Enemy : MovingObject
         int xDir = 0;
         int yDir = 0;
 
-        if (Mathf.Abs (targer.position.x - transform.position.x) < float.Epsilon)
-            yDir = target.postion.y > transform.position.y ? 1 : -1;
+        if (Mathf.Abs (target.position.x - transform.position.x) < float.Epsilon)
+            yDir = target.position.y > transform.position.y ? 1 : -1;
         else
-            xDir = targer.position.x > transform.position.x ? 1 : -1;
+            xDir = target.position.x > transform.position.x ? 1 : -1;
         
         AttemptMove <Player> (xDir, yDir);
     }
