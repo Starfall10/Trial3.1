@@ -37,4 +37,17 @@ public class Enemy : MovingObject
         skipMove = true;
     }
 
+    public void MoveEnemy()
+    {
+        int xDir = 0;
+        int yDir = 0;
+
+        if (Mathf.Abs (targer.position.x - transform.position.x) < float.Epsilon)
+            yDir = target.postion.y > transform.position.y ? 1 : -1;
+        else
+            xDir = targer.position.x > transform.position.x ? 1 : -1;
+        
+        AttemptMove <Player> (xDir, yDir);
+    }
+
 }
