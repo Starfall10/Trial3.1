@@ -55,6 +55,25 @@ public class Player : MovingObject
         GameManager.instance.playersTurn = false;
     }
 
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.tag == "Exit")
+        {
+            Invoke ("Restart", restartLevelDelay);
+            enabled = false;
+        }
+        else if (other.tag == "Food")
+        {
+            food += pointsPerFood;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag == "Soda")
+        {
+            food += pointsPerSoda;
+            other.gameObject.SetActive(false);
+        }
+    }
+
     protected override void OnCantMove <T> (T compont)
     {
         Wall hitWall = component as Wall;
