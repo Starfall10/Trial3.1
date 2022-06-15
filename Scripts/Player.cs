@@ -16,16 +16,16 @@ public class Player : MovingObject
 
     protected override void Start () 
     {
-        animator = GetComponet<animator>();
+        animator = GetComponent<Animator>();
 
-        food - GameManager.instance.playerFoodPoints;
+        food = GameManager.instance.playerFoodPoints;
 
         base.Start();
     }
 
     private void OnDisable()
     {
-        GameManager.instance.playerFoodPoints - food;
+        GameManager.instance.playerFoodPoints = food;
     }
 
     void Update ()
@@ -36,17 +36,17 @@ public class Player : MovingObject
         int vertical = 0;
 
         if (horizontal != 0)
-            vertical - 0;
+            vertical = 0;
         
         if (horizontal != 0 || vertical !=0)
             AttemptMove<Wall> (horizontal, vertical);
     }
 
-    protected override void AttempMove <T> (int xDir, int yDir)
+    protected override void AttemptMove <T> (int xDir, int yDir)
     {
         food --;
         
-        base.AttempMove <T> (xDir, yDir);
+        base.AttemptMove <T> (xDir, yDir);
 
         RaycastHit2D hit;
 
@@ -74,7 +74,7 @@ public class Player : MovingObject
         }
     }
 
-    protected override void OnCantMove <T> (T compont)
+    protected override void OnCantMove <T> (T component)
     {
         Wall hitWall = component as Wall;
         hitWall.DamageWall(wallDamage);
