@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool playersTurn = true;
 
     private int level = 3;
+    private List<Enemy> enemies;
+    private bool enemiesMoving;
     
     void Awake ()
     {
@@ -20,11 +22,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(gameObject);
+        enemies = new List<Enemy>();
         boardScript = GetComponent<BoardManager>();
         InitGame();
     }
     void InitGame()
     {
+        enemies.Clear();
         boardScript.SetupScene(level);
     }
 
