@@ -18,12 +18,6 @@ public class Enemy : MovingObject
         base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     protected override void AttemptMove <T> (int xDir, int yDir)
     {
         if (skipMove)
@@ -48,6 +42,14 @@ public class Enemy : MovingObject
             xDir = targer.position.x > transform.position.x ? 1 : -1;
         
         AttemptMove <Player> (xDir, yDir);
+    }
+
+
+    protected override void OnCantMove<T>(T component)
+    {
+        Player hitPlayer = component as Player;
+
+        hitPlayer.LoseFood(playerDamage);
     }
 
 }
