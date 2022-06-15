@@ -28,6 +28,18 @@ public class Player : MovingObject
         GameManager.instance.playerFoodPoints - food;
     }
 
+    protected override void AttempMove <T> (int xDir, int yDir)
+    {
+        food --;
+        
+        base.AttempMove <T> (xDir, yDir);
+
+        RaycastHit2D hit;
+
+        CheckIfGameOver();
+
+        GameManager.instance.playersTurn = false;
+    }
     private void CheckIfGameOver()
     {
         if (food <= 0)
