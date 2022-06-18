@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour
         boardScript.SetupScene(level);
     }
 
+    public void HideLevelImage()
+    {
+        levelImage.SetActive(false);
+        doingSetUp = false;
+    }
     public void GameOver()
     {
         enabled = false;
