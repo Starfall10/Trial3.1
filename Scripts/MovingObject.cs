@@ -30,6 +30,7 @@ public abstract class MovingObject : MonoBehaviour {
         if (hit.transform == null)
         {
             StartCoroutine(SmoothMovement (end));
+            return true;
         }
 
         return false;
@@ -41,7 +42,7 @@ public abstract class MovingObject : MonoBehaviour {
 
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end , inverseMoveTime * Time.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards (rb2D.position, end, inverseMoveTime * Time.deltaTime);
             rb2D.MovePosition(newPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
@@ -66,6 +67,6 @@ public abstract class MovingObject : MonoBehaviour {
     protected abstract void OnCantMove <T> (T component)
         where T : Component;
 
-    // Update is called once per frame
+    
 
 }
