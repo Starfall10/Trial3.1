@@ -22,6 +22,8 @@ public class Player : MovingObject
 
         food = GameManager.instance.playerFoodPoints;
 
+        foodText.text = "Food: " + food;
+
         base.Start();
     }
 
