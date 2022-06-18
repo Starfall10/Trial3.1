@@ -30,6 +30,13 @@ public class GameManager : MonoBehaviour
         boardScript = GetComponent<BoardManager>();
         InitGame();
     }
+
+    private void OnLevelWasLoaded (int index)
+    {
+        level++;
+
+        InitGame();
+    }
     void InitGame()
     {
         enemies.Clear();
