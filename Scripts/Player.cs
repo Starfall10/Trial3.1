@@ -47,7 +47,7 @@ public class Player : MovingObject
 
     protected override void AttemptMove <T> (int xDir, int yDir)
     {
-        food --;
+        food--;
         
         base.AttemptMove <T> (xDir, yDir);
 
