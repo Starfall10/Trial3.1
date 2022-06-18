@@ -73,11 +73,14 @@ public class Player : MovingObject
         else if (other.tag == "Food")
         {
             food += pointsPerFood;
+            foodText.text = "+" + pointsPerFood + " Food: " + food;
             other.gameObject.SetActive(false);
+            
         }
         else if (other.tag == "Soda")
         {
             food += pointsPerSoda;
+            foodText.text = "+" + pointsPerFood + " Food: " + food;
             other.gameObject.SetActive(false);
         }
     }
