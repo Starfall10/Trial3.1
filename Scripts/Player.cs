@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Player : MovingObject
 {
 
@@ -9,6 +10,7 @@ public class Player : MovingObject
     public int pointsPerFood = 10;
     public int pointsPerSoda = 20;
     public float restartLevelDelay = 1f;
+    public Text foodText;
 
     private Animator animator;
     private int food;
