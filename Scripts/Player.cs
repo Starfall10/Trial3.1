@@ -104,6 +104,7 @@ public class Player : MovingObject
     {
         animator.SetTrigger("playerHit");
         food -= loss;
+        foodText.text = "-" + loss + " Food: " + food;
         CheckIfGameOver();
     }
     private void CheckIfGameOver()
