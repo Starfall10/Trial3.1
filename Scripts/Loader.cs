@@ -12,12 +12,7 @@ public class Loader : MonoBehaviour
             Instantiate(gameManager);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+}    
 
 public static class Loader1 
 {
