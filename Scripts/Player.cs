@@ -15,7 +15,7 @@ public class Player : MovingObject
     private Animator animator;
     private int food;
 
-
+    // Comment
     protected override void Start () 
     {
         animator = GetComponent<Animator>();
@@ -43,10 +43,13 @@ public class Player : MovingObject
         vertical = (int) Input.GetAxisRaw("Vertical");
 
         if (horizontal != 0)
+        {
             vertical = 0;
-        
+        }
         if (horizontal != 0 || vertical !=0)
+        {
             AttemptMove<Wall> (horizontal, vertical);
+        }
     }
 
     protected override void AttemptMove <T> (int xDir, int yDir)
@@ -57,6 +60,11 @@ public class Player : MovingObject
         base.AttemptMove <T> (xDir, yDir);
 
         RaycastHit2D hit;
+
+        if (Move (xDir, yDir, out hit))
+        {
+
+        }
 
         CheckIfGameOver();
 
@@ -80,7 +88,7 @@ public class Player : MovingObject
         else if (other.tag == "Soda")
         {
             food += pointsPerSoda;
-            foodText.text = "+" + pointsPerFood + " Food: " + food;
+            foodText.text = "+" + pointsPerSoda + " Food: " + food;
             other.gameObject.SetActive(false);
         }
     }
@@ -97,7 +105,7 @@ public class Player : MovingObject
     }
     private void Restart()
     {
-        Loader1.Load(Loader1.Scene.Main);
+        SceneManager.LoadScene (0);
     }
 
     public void LoseFood (int loss)
